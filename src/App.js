@@ -1,24 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Products from './components/Products';
+import CartPage from './components/CartPage';
+import Header from './components/Header';
 
 function App() {
+
+
+  // const[carts,setCarts] = useState([]);
+  // const[price,setPrice] = useState(0);
+
+  // const removeCartItem = (prod) => {
+  //   const updateCart = carts.filter(item => item.id !== prod.id);
+  //   setCarts(updateCart);
+  //   setPrice(prev => Math.round(prev - Math.round(prod.price)));
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <div className="appContent">
+          
+          {/* <Routes>
+            <Route path='/' element={<Products carts={carts} setCarts={setCarts} 
+            removeCartItem={removeCartItem} setPrice={setPrice}/>}/>
+            <Route path='/CartPage' element={<CartPage  carts={carts} setCarts={setCarts} 
+            price={price} setPrice={setPrice} removeCartItem={removeCartItem} />}/>
+          </Routes> */}
+
+          <Routes>
+            <Route path='/' element={<Products/>}/>
+            <Route path='/CartPage' element={<CartPage/>}/>
+          </Routes>
+
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
